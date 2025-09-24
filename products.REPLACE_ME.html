@@ -11,7 +11,7 @@
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
     .section{background:#fff;margin:20px auto;max-width:1000px;border:2px solid #333;padding:30px 20px}
     .header{display:flex;justify-content:space-between;align-items:center;margin:10px auto 0;max-width:1000px;padding:10px 0}
-    .brand a{color:#333;text-decoration:none;font-weight:800;border-bottom:2px solid #333}
+    .brand a{color:#333;text-decoration:none;font-weight:800;border-bottom:2px solid #333; white-space: nowrap;}
     h1{font-size:2rem;text-align:center;margin:10px 0 0}
     .notice{font-size:.9rem;color:#666;text-align:center;margin:10px 0 20px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
@@ -25,7 +25,7 @@
     .btn:hover{background:#333;color:#FFD700}
     .tags{display:flex;flex-wrap:wrap;gap:6px}
     .tag{border:1px solid #eee;background:#fafafa;padding:3px 8px;border-radius:999px;font-size:.75rem;color:#666}
-    .breadcrumb{margin:10px 0 0;font-size:.9rem}
+    .breadcrumb{margin:10px 0 0;font-size:.9rem; white-space: nowrap;}
     .breadcrumb a{color:#333}
     .search{margin:20px auto;max-width:600px;display:flex;gap:8px}
     .search input{flex:1;border:1px solid #ddd;padding:10px; min-width: 0;}
@@ -34,7 +34,7 @@
     
     /* --- Responsive Styles for Smartphone --- */
     @media (max-width:768px){
-      body { -webkit-text-size-adjust: 100%; }
+      body { -webkit-text-size-adjust: 100%; word-break: break-all; }
       .container { padding: 0 10px; }
       h1{font-size:1.4rem}
       .section{margin:10px auto;padding:20px 12px}
@@ -195,5 +195,4 @@
     render(PRODUCTS);
   </script>
 </body>
-</html>
 </html>
