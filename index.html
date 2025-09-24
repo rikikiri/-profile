@@ -19,13 +19,13 @@
     .btn-primary { display: inline-block; background: linear-gradient(135deg,#FFD700,#FFA500); color:#333; padding: 15px 30px; border:2px solid #333; text-decoration:none; font-weight:700; transition: background .2s, color .2s; }
     .btn-primary:hover { background:#333; color:#FFD700; }
     .social-links { display:flex; gap: 8px 15px; justify-content:center; align-items: center; flex-wrap:wrap; margin-top:30px; }
-    .social-link { color:#333; text-decoration:none; font-weight:500; }
+    .social-link { color:#333; text-decoration:none; font-weight:500; white-space: nowrap; }
     .social-link:hover { color:#FFD700; }
     .social-link:not(:last-child)::after { content: '|'; margin-left: 15px; color: #ccc; pointer-events: none; }
     .section { background:#fff; margin:40px auto; max-width:1000px; border:2px solid #333; padding:50px 40px; }
     h2 { font-size:2.2rem; margin-bottom:30px; text-align:center; font-weight:700; letter-spacing:0.06em; }
     h2::after { content:''; display:block; width:60px; height:3px; background:linear-gradient(135deg,#FFD700,#FFA500); margin:15px auto 0; }
-    .profile-text { max-width:800px; margin:0 auto; color:#555; text-align:center; }
+    .profile-text { max-width:800px; margin:0 auto; color:#555; text-align:center; line-height: 1.8; }
     .age-highlight { background:linear-gradient(135deg,#FFD700,#FFA500); color:#333; font-weight:700; padding:2px 6px; border-radius:3px; }
     .services-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:25px; margin-top:40px; }
     .service-card { background:#fff; padding:25px; border:1px solid #ddd; }
@@ -47,7 +47,7 @@
 
     /* --- Responsive Styles for Smartphone --- */
     @media (max-width:768px) {
-      body { -webkit-text-size-adjust: 100%; }
+      body { -webkit-text-size-adjust: 100%; word-break: break-all; }
       .container { padding: 0 16px; }
       .section { padding:40px 20px; margin:20px auto; }
       .hero { margin:10px auto; padding:40px 20px; }
@@ -88,7 +88,7 @@
         <p><span class="age-highlight">12歳</span>──父の手伝いでアカウント運用を始め、撮影・インタビュー・映像構成（脚本）・編集を開始。インフルエンサーを近くで見て学び、動画のノウハウを取得。</p><br>
         <p><span class="age-highlight">13歳</span>──SNS運用のレベルアップのためにデザインへ領域拡張。サムネ・バナー・ポスター・名刺などを制作。</p><br>
         <p><span class="age-highlight">14歳</span>──発信の土台を自走するためにWeb制作（HTML/CSS）とAI活用を導入。要約・生成画像/音声・編集アシスト等をワークフロー化し、制作のスピードと再現性を向上。</p><br>
-        <p>現在は<strong>企画→制作→公開→改善</strong>を一気通貫で手掛ける。</p>
+        <p>現在は<strong>企画→制作→公開→改善</strong>を<br>一気通貫で手掛ける。</p>
       </div>
     </section>
 
