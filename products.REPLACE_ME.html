@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>動画で紹介した商品 | 力丸のおすすめ</title>
+  <title>紹介アイテム | 力丸のおすすめ</title>
   <meta name="description" content="動画内で紹介した商品のまとめページ。Amazonアフィリエイトリンクから購入できます。">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Arial','Hirino Sans','Yu Gothic',sans-serif;color:#333;background:#fff;line-height:1.6}
+    body{font-family:'Arial','Hiragino Sans','Yu Gothic',sans-serif;color:#333;background:#fff;line-height:1.6}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
     .section{background:#fff;margin:20px auto;max-width:1000px;border:2px solid #333;padding:30px 20px}
     .header{display:flex;justify-content:flex-end;align-items:center;margin:10px auto 0;max-width:1000px;padding:10px 0}
@@ -47,15 +47,15 @@
 <body>
   <div class="container">
     <div class="header">
-      <nav class="breadcrumb"><a href="./index.html">HOME</a> / 動画で紹介した商品</nav>
+      <nav class="breadcrumb"><a href="./index.html">HOME</a> / 紹介アイテム一覧</nav>
     </div>
 
     <section class="section">
-      <h1>動画で紹介した商品</h1>
-      <p class="notice">動画内で紹介した商品のまとめページです。</p>
+      <h1>紹介アイテム一覧</h1>
+      <p class="notice">動画で紹介したアイテムをまとめています。</p>
 
       <div class="search">
-        <input id="q" type="search" placeholder="商品名・動画タイトル・タグで検索" aria-label="検索"/>
+        <input id="q" type="search" placeholder="キーワードで商品を検索" aria-label="検索"/>
         <button id="searchBtn">検索</button>
       </div>
 
@@ -65,7 +65,6 @@
   </div>
 
   <script>
-    // ==== 設定：ここに商品を追加 ====
     const PRODUCTS = [
       {
         title: "SONY α7II ボディ",
@@ -73,7 +72,7 @@
         video: "〇〇万円 カメラに投資しました！",
         tags: ["撮影機材","一眼レフ","カメラ","SONY"],
         amazon_url: "https://amzn.to/4ms4igM",
-        note: "SONY フルサイズ ミラーレス一眼カメラ α7II ボディ(中古)"
+        note: "フルサイズミラーレス一眼 α7II ボディ(中古)"
       },
       {
         title: "TAMRON 70-300mm F/4.5 6.3",
@@ -81,7 +80,7 @@
         video: "〇〇万円 カメラに投資しました！",
         tags: ["撮影機材","一眼レフ","カメラ","SONY","レンズ"],
         amazon_url: "https://amzn.to/4pGyms4",
-        note: "TAMRON ズーム70-300mm F/4.5-6.3 ソニーEマウント用レンズ"
+        note: "TAMRON 望遠ズームレンズ 70-300mm (Eマウント)"
       },
       {
         title: "SONY 標準単焦点レンズ フルサイズ FE 50mm F1.8",
@@ -89,7 +88,7 @@
         video: "〇〇万円 カメラに投資しました！",
         tags: ["撮影機材","一眼レフ","カメラ","SONY","レンズ"],
         amazon_url: "https://amzn.to/4mtmRBa",
-        note: "SONY デジタル一眼カメラα[Eマウント]用レンズ"
+        note: "SONY 標準単焦点レンズ FE 50mm F1.8 (Eマウント)"
       },
       {
         title: "エア・リゾーム 作業机",
@@ -97,7 +96,7 @@
         video: "デスク大人化計画 デスク編",
         tags: ["机","デスク","勉強机","学習机","黒"],
         amazon_url: "https://amzn.to/4pT9LQX",
-        note: "【サイズ】約幅160×奥行き70×高さ70cm 【天板の厚み】約2.6cm 【耐荷重】約60kg"
+        note: "サイズ: 幅160×奥行70cm / 耐荷重: 約60kg"
       },
       {
         title: "粘着式ケーブルタイ",
@@ -105,7 +104,7 @@
         video: "デスク大人化計画 配線編",
         tags: ["ケーブル","配線","コード","ケーブルタイ"],
         amazon_url: "https://www.amazon.co.jp/Menetop-Straps-cable50-50%E5%80%8B-%E9%BB%92/dp/B0DT1HJCVY?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=30QC55HFNGX8B&dib=eyJ2IjoiMSJ9.H9mNWmy-lGamCAnb3Ki4IpVsU1AiIbmK1URqlpebLgwq5Jhx3VD1rAyjXNzn3t7qPJgAkGkAqCAjTQ3EAvEpRYt6nZLiL4HF0olWw9WtMErrORYi4iF70ilmfo7hhdYzn-DjgkTIpMlR5PaasoOxVxVedKOK7-czp05Md1f8ArXHVlhsVT0lVFYM5iNrWADQmjXNnrkELlVdivlyZz8gBRkZ9WqR0M92wTV1Td0WNBmNEmCWwSrxwwxiMP1d7Lh7oUa3fEuPaxHECnDEQ8ZqH1Nrbs4CMCWmj1C8efjeS-8.vvCz3VnDnLKFubGkmpr16uU4bexXPNxblMvp7O5jNM8&dib_tag=se&keywords=50%E5%80%8B%2B%E3%83%87%E3%82%B9%E3%82%AF%E4%B8%8B%E3%81%AE%E3%83%95%E3%83%83%E3%82%AF%E3%81%A8%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E7%AE%A1%E7%90%86%E3%80%81%E7%B2%98%E7%9D%80%E5%BC%8F%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%82%BF%E3%82%A4%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E7%94%A8%E3%81%AE%E5%86%8D%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%B6%E3%83%BC%E3%80%81%E8%AA%BF%E7%AF%80%E5%8F%AF%E8%83%BD%E3%81%AA%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%83%97%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%80%81%E3%83%9B%E3%83%BC%E3%83%A0%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%81%AE%E5%BF%85%E9%9C%80%E5%93%81%2B%28%E9%BB%92%29&qid=1758591432&sprefix=50%E5%80%8B%2B%E3%83%87%E3%82%B9%E3%82%AF%E4%B8%8B%E3%81%AE%E3%83%95%E3%83%83%E3%82%AF%E3%81%A8%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E7%AE%A1%E7%90%86%2B%E7%B2%98%E7%9D%80%E5%BC%8F%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%82%BF%E3%82%A4%2B%E3%82%B3%E3%83%BC%E3%83%89%E7%94%A8%E3%81%AE%E5%86%8D%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%B6%E3%83%BC%2B%E8%AA%BF%E7%AF%80%E5%8F%AF%E8%83%BD%E3%81%AA%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%83%97%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%2B%E3%83%9B%E3%83%BC%E3%83%A0%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%81%AE%E5%BF%85%E9%9C%80%E5%93%81%2B%E9%BB%92%2B%2Caps%2C2917&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=sl1&tag=rikimaru07-22&linkId=205ef52aa52443adcd331a0a231575fb&language=ja_JP&ref_=as_li_ss_tl",
-        note: "50個 デスク下のフックとループのケーブル管理、粘着式ケーブルタイ"
+        note: "粘着式ケーブルタイ 50個セット"
       },
       {
         title: "UGREEN USB Type Cケーブル",
@@ -113,7 +112,7 @@
         video: "デスク大人化計画 配線編",
         tags: ["ケーブル","配線","充電コード","充電器","UGREEN"],
         amazon_url: "https://amzn.to/4ngiIlh",
-        note: "Type CケーブルPD対応100W/5A 超急速充電USB C to USB C 断線防止"
+        note: "PD対応100W/5A 高耐久USB-Cケーブル"
       },
       {
         title: "MAVEEK ケーブルクリップ",
@@ -121,7 +120,7 @@
         video: "デスク大人化計画 配線編",
         tags: ["ケーブル","配線","コード","ケーブルクリップ"],
         amazon_url: "https://amzn.to/46DxWde",
-        note: "SONY デジタル一眼カメラα[Eマウント]用レンズ"
+        note: "ケーブルを定位置に固定する両面テープ式クリップ"
       },
       {
         title: "UGREEN Revodok 1071 USB-Cハブ",
@@ -129,7 +128,7 @@
         video: "デスク大人化計画 配線編",
         tags: ["UGREEN","ハブ","USBハブ"],
         amazon_url: "https://amzn.to/4nsqoAY",
-        note: "Type-C PD100W急速充電 USB-C 5Gbps高速転送 4K HDMIハブ USB 3.0 2ポート拡張 SD Micro SD/TFカードリーダー付き"
+        note: "PD100W充電/4K HDMI/SDカード対応 USB-Cハブ"
       },
       {
         title: "SONY WH-ULT900N",
@@ -137,7 +136,7 @@
         video: "初給料で買ってよかったもの",
         tags: ["SONY","WH-ULT900N","ヘッドホン","ノイズキャンセリング"],
         amazon_url: "https://amzn.to/46Qyq0I",
-        note: "SONY ワイヤレスノイズキャンセリングステレオヘッドホン"
+        note: "ワイヤレスノイズキャンセリングヘッドホン"
       },
       {
         title: "WILLED",
@@ -145,7 +144,7 @@
         video: "初給料で買ってよかったもの",
         tags: ["WILLEDN","ライト","間接照明","LED","照明"],
         amazon_url: "https://amzn.to/48tyIfaY",
-        note: "WILLED 6個 タッチライト キャビネットライト"
+        note: "タッチ式LEDライト 6個セット"
       }
     ];
 
@@ -186,7 +185,6 @@
     input.addEventListener("input", search);
     searchBtn.addEventListener("click", search);
 
-    // 初期表示
     render(PRODUCTS);
   </script>
 </body>
