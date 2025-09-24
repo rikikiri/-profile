@@ -14,14 +14,14 @@
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     .hero { background: #fff; margin: 20px auto; max-width: 800px; border: 2px solid #333; padding: 60px 40px; text-align: center; }
     .hero-image-actual { width: 250px; height: 250px; margin: 0 auto 40px; background: url('./rikimaru-profile.png') center/cover no-repeat; border-radius: 50%; border: 2px solid #333; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
     h1 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 30px; font-weight: 700; }
     .lead { font-size: 1.1rem; margin-bottom: 40px; color: #666; }
-    .btn-primary { background: linear-gradient(135deg,#FFD700,#FFA500); color:#333; padding: 15px 30px; border:2px solid #333; text-decoration:none; font-weight:700; }
+    .btn-primary { display: inline-block; background: linear-gradient(135deg,#FFD700,#FFA500); color:#333; padding: 15px 30px; border:2px solid #333; text-decoration:none; font-weight:700; transition: background .2s, color .2s; }
     .btn-primary:hover { background:#333; color:#FFD700; }
-    .social-links { display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
+    .social-links { display:flex; gap: 8px 15px; justify-content:center; align-items: center; flex-wrap:wrap; margin-top:30px; }
     .social-link { color:#333; text-decoration:none; font-weight:500; }
     .social-link:hover { color:#FFD700; }
+    .social-link:not(:last-child)::after { content: '|'; margin-left: 15px; color: #ccc; pointer-events: none; }
     .section { background:#fff; margin:40px auto; max-width:1000px; border:2px solid #333; padding:50px 40px; }
     h2 { font-size:2.2rem; margin-bottom:30px; text-align:center; font-weight:700; letter-spacing:0.06em; }
     h2::after { content:''; display:block; width:60px; height:3px; background:linear-gradient(135deg,#FFD700,#FFA500); margin:15px auto 0; }
@@ -29,7 +29,6 @@
     .age-highlight { background:linear-gradient(135deg,#FFD700,#FFA500); color:#333; font-weight:700; padding:2px 6px; border-radius:3px; }
     .services-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:25px; margin-top:40px; }
     .service-card { background:#fff; padding:25px; border:1px solid #ddd; }
-    /* ORIGINAL ACHIEVEMENT STATS DESIGN */
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px; }
     .stat-card { background: #f9f9f9; padding: 25px; text-align: center; border: 1px solid #ddd; transition: all 0.3s ease; }
     .stat-card:hover { background: linear-gradient(135deg, #FFD700, #FFA500); color: #333; border-color: #333; }
@@ -37,24 +36,34 @@
     .stat-label { color: #666; font-weight: 500; font-size: 0.9rem; }
     .stat-card:hover .stat-number, .stat-card:hover .stat-label { color: #333; }
     .links-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:20px; margin-top:40px; }
-    .link-card { background:#333; color:#fff; padding:25px; text-align:center; text-decoration:none; font-weight:600; border:2px solid #333; }
+    .link-card { display: block; background:#333; color:#fff; padding:25px; text-align:center; text-decoration:none; font-weight:600; border:2px solid #333; transition: background .2s, color .2s; }
     .link-card:hover { background:linear-gradient(135deg,#FFD700,#FFA500); color:#333; }
-    /* WIDE LINK WITHOUT THUMB IMAGE */
     .wide-link-wrap { margin-top:18px; }
     .wide-link { display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; min-height:64px; border:2px solid #333; background:#fff; text-decoration:none; padding:10px 16px; transition: transform .15s ease, box-shadow .15s ease, background .2s ease; }
     .wide-link:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,.08); background:#faf7eb; }
     .wide-title { font-weight:800; color:#333; }
     .wide-sub { font-size:.9rem; color:#666; }
     .wide-cta { font-weight:800; border:2px solid #333; padding:6px 10px; background:linear-gradient(135deg,#FFD700,#FFA500); color:#333; white-space:nowrap; }
+
+    /* --- Responsive Styles for Smartphone --- */
     @media (max-width:768px) {
-      .section { padding:30px 16px; margin:10px auto; }
-      .hero { margin:10px auto; padding:30px 16px; }
-      .hero-image-actual { width:180px; height:180px; }
+      body { -webkit-text-size-adjust: 100%; }
+      .container { padding: 0 16px; }
+      .section { padding:40px 20px; margin:20px auto; }
+      .hero { margin:10px auto; padding:40px 20px; }
+      .hero-image-actual { width:180px; height:180px; margin-bottom: 30px; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.6rem; }
+      .lead { font-size: 1rem; line-height: 1.7; }
+      .social-link:not(:last-child)::after { content: '|'; margin-left: 12px; }
+      .services-grid { grid-template-columns: 1fr; gap: 15px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .stat-card { padding: 15px 10px; }
+      .stat-number { font-size: 1.5rem; }
+      .stat-label { font-size: 0.8rem; }
+      .links-grid { grid-template-columns: 1fr; }
       .wide-link { min-height:56px; }
       .wide-sub { display:none; }
-      .stat-number { font-size: 1.6rem; }
-      .links-grid { grid-template-columns: 1fr; }
-    
     }
   </style>
 </head>
@@ -63,11 +72,11 @@
     <section class="hero">
       <div class="hero-image-actual"></div>
       <h1>力丸（りきまる）</h1>
-      <p class="lead">デザイン／撮影／映像脚本／動画編集／<br>Web制作／AI活用支援<br>シンプルに、速く、秒で伝わる、を設計する。</p>
+      <p class="lead">デザイン／撮影／映像脚本／動画編集／Web制作／AI活用支援<br>シンプルに、速く、秒で伝わる、を設計する。</p>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLScMte3a62TjlW3PnL9kkrcH-4_XMQSfT0w_LcT69jdCf6OOJg/viewform?usp=sharing&ouid=113370185749730903728" class="btn-primary" target="_blank">仕事の相談をする</a>
       <div class="social-links">
-        <a href="https://youtube.com/@rikimaru_lifestyle?feature=shared" class="social-link" target="_blank">YouTubeを見る</a><span>｜</span>
-        <a href="https://www.instagram.com/rikimaru_lifestyle?igsh=cW9qM2d1eng0NjF3&utm_source=qr" class="social-link" target="_blank">Instagramを見る</a><span>｜</span>
+        <a href="https://youtube.com/@rikimaru_lifestyle?feature=shared" class="social-link" target="_blank">YouTubeを見る</a>
+        <a href="https://www.instagram.com/rikimaru_lifestyle?igsh=cW9qM2d1eng0NjF3&utm_source=qr" class="social-link" target="_blank">Instagramを見る</a>
         <a href="https://www.tiktok.com/@rikimaru_lifestyle?_t=ZS-8ym1KhllB5D&_r=1" class="social-link" target="_blank">TikTokを見る</a>
       </div>
     </section>
