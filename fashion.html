@@ -122,7 +122,7 @@
   </div>
 
   <script>
-    // ▼▼ ここにファッションアイテムの情報を追加・編集してください ▼▼
+    // ▼▼ ここは「ファッション」の仮データ ▼▼
     const FASHION_ITEMS = [
       {
         title: "【仮データ】オーバーサイズ Tシャツ (ブラック)",
@@ -177,6 +177,7 @@
 
     function search(){
       const q = input.value.trim().toLowerCase();
+      // ここの検索対象を「FASHION_ITEMS」にします
       if(!q){ render(FASHION_ITEMS); return; }
       const list = FASHION_ITEMS.filter(p => {
         const hay = [p.title, p.video, p.note, ...(p.tags||[])].join(" ").toLowerCase();
@@ -188,6 +189,7 @@
     input.addEventListener("input", search);
     searchBtn.addEventListener("click", search);
 
+    // 最初の描画も「FASHION_ITEMS」にします
     render(FASHION_ITEMS);
   </script>
 </body>
