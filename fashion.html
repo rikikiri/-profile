@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>紹介アイテム | 力丸のおすすめ</title>
+  <meta name="description" content="動画内で紹介した商品のまとめページ。Amazonアフィリエイトリンクから購入できます。">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Arial','Hiragino Sans','Yu Gothic',sans-serif;color:#333;background:#fff;line-height:1.6}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .section{background:#fff;margin:20px auto;max-width:1000px;border:2px solid #333;padding:30px 20px}
+    .header{display:flex;justify-content:flex-end;align-items:center;margin:10px auto 0;max-width:1000px;padding:10px 0}
+    h1{font-size:2rem;text-align:center;margin:10px 0 0}
+    .notice{font-size:.9rem;color:#666;text-align:center;margin:10px 0 20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .card{border:1px solid #ddd;padding:14px;display:flex;flex-direction:column;gap:10px;transition:transform .2s ease, box-shadow .2s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+    .thumb{width:100%;aspect-ratio:4/3;background:#f7f7f7;border:1px dashed #ccc;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#999;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .title{font-weight:700}
+    .meta{font-size:.85rem;color:#666}
+    .btn{margin-top:auto;display:block;background:linear-gradient(135deg,#FFD700,#FFA500);color:#333;border:2px solid #333;text-decoration:none;padding:10px 14px;font-weight:800;text-align:center; transition: background .2s, color .2s; }
+    .btn:hover{background:#333;color:#FFD700}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{border:1px solid #eee;background:#fafafa;padding:3px 8px;border-radius:999px;font-size:.75rem;color:#666}
+    .breadcrumb{margin:10px 0 0;font-size:.9rem; white-space: nowrap;}
+    .breadcrumb a{color:#333}
+    .search{margin:20px auto;max-width:600px;display:flex;gap:8px}
+    .search input{flex:1;border:1px solid #ddd;padding:10px; min-width: 0;}
+    .search button{padding:10px 14px;border:2px solid #333;background:#fff;font-weight:700;cursor:pointer}
+    .empty{padding:30px;text-align:center;color:#666}
+    
+    /* --- Responsive Styles for Smartphone --- */
+    @media (max-width:768px){
+      body { -webkit-text-size-adjust: 100%; }
+      .container { padding: 0 10px; }
+      h1{font-size:1.4rem}
+      .section{margin:10px auto;padding:20px 12px}
+      .grid{gap:12px}
+      .header { justify-content: flex-start; padding: 10px 4px; }
+      .search { flex-direction: column; }
+      .search button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <nav class="breadcrumb"><a href="./index.html">HOME</a> / 紹介アイテム一覧</nav>
+    </div>
+
+    <section class="section">
+      <h1>紹介アイテム一覧</h1>
+      <p class="notice">動画で紹介したアイテムをまとめています。</p>
+
+      <div class="search">
+        <input id="q" type="search" placeholder="キーワードで商品を検索" aria-label="検索"/>
+        <button id="searchBtn">検索</button>
+      </div>
+
+      <div id="grid" class="grid" aria-live="polite"></div>
+      <div id="empty" class="empty" hidden>該当する商品が見つかりませんでした。</div>
+    </section>
+  </div>
+
+  <script>
+    const PRODUCTS = [
+      {
+        title: "SONY α7II ボディ",
+        img: "71mB5GhoXEL._AC_SL1500_.jpg",
+        video: "〇〇万円 カメラに投資しました！",
+        tags: ["撮影機材","一眼レフ","カメラ","SONY"],
+        amazon_url: "https://amzn.to/4ms4igM",
+        note: "フルサイズミラーレス一眼 α7II ボディ(中古)"
+      },
+      {
+        title: "TAMRON 70-300mm F/4.5 6.3",
+        img: "61a4PYA1VaL._UF1000,1000_QL80_.jpg",
+        video: "〇〇万円 カメラに投資しました！",
+        tags: ["撮影機材","一眼レフ","カメラ","SONY","レンズ"],
+        amazon_url: "https://amzn.to/4pGyms4",
+        note: "TAMRON 望遠ズームレンズ 70-300mm (Eマウント)"
+      },
+      {
+        title: "SONY 標準単焦点レンズ フルサイズ FE 50mm F1.8",
+        img: "818jLdp72mL._AC_SL1500_.jpg",
+        video: "〇〇万円 カメラに投資しました！",
+        tags: ["撮影機材","一眼レフ","カメラ","SONY","レンズ"],
+        amazon_url: "https://amzn.to/4mtmRBa",
+        note: "SONY 標準単焦点レンズ FE 50mm F1.8 (Eマウント)"
+      },
+      {
+        title: "エア・リゾーム 作業机",
+        img: "41FmpJILuDL._UF894,1000_QL80_.jpg",
+        video: "デスク大人化計画 デスク編",
+        tags: ["机","デスク","勉強机","学習机","黒"],
+        amazon_url: "https://amzn.to/4pT9LQX",
+        note: "サイズ: 幅160×奥行70cm / 耐荷重: 約60kg"
+      },
+      {
+        title: "粘着式ケーブルタイ",
+        img: "71SEPamY2bL._AC_SL1500_.jpg",
+        video: "デスク大人化計画 配線編",
+        tags: ["ケーブル","配線","コード","ケーブルタイ"],
+        amazon_url: "https://www.amazon.co.jp/Menetop-Straps-cable50-50%E5%80%8B-%E9%BB%92/dp/B0DT1HJCVY?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=30QC55HFNGX8B&dib=eyJ2IjoiMSJ9.H9mNWmy-lGamCAnb3Ki4IpVsU1AiIbmK1URqlpebLgwq5Jhx3VD1rAyjXNzn3t7qPJgAkGkAqCAjTQ3EAvEpRYt6nZLiL4HF0olWw9WtMErrORYi4iF70ilmfo7hhdYzn-DjgkTIpMlR5PaasoOxVxVedKOK7-czp05Md1f8ArXHVlhsVT0lVFYM5iNrWADQmjXNnrkELlVdivlyZz8gBRkZ9WqR0M92wTV1Td0WNBmNEmCWwSrxwwxiMP1d7Lh7oUa3fEuPaxHECnDEQ8ZqH1Nrbs4CMCWmj1C8efjeS-8.vvCz3VnDnLKFubGkmpr16uU4bexXPNxblMvp7O5jNM8&dib_tag=se&keywords=50%E5%80%8B%2B%E3%83%87%E3%82%B9%E3%82%AF%E4%B8%8B%E3%81%AE%E3%83%95%E3%83%83%E3%82%AF%E3%81%A8%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E7%AE%A1%E7%90%86%E3%80%81%E7%B2%98%E7%9D%80%E5%BC%8F%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%82%BF%E3%82%A4%E3%80%81%E3%82%B3%E3%83%BC%E3%83%89%E7%94%A8%E3%81%AE%E5%86%8D%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%B6%E3%83%BC%E3%80%81%E8%AA%BF%E7%AF%80%E5%8F%AF%E8%83%BD%E3%81%AA%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%83%97%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%80%81%E3%83%9B%E3%83%BC%E3%83%A0%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%81%AE%E5%BF%85%E9%9C%80%E5%93%81%2B%28%E9%BB%92%29&qid=1758591432&sprefix=50%E5%80%8B%2B%E3%83%87%E3%82%B9%E3%82%AF%E4%B8%8B%E3%81%AE%E3%83%95%E3%83%83%E3%82%AF%E3%81%A8%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E7%AE%A1%E7%90%86%2B%E7%B2%98%E7%9D%80%E5%BC%8F%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%82%BF%E3%82%A4%2B%E3%82%B3%E3%83%BC%E3%83%89%E7%94%A8%E3%81%AE%E5%86%8D%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%B6%E3%83%BC%2B%E8%AA%BF%E7%AF%80%E5%8F%AF%E8%83%BD%E3%81%AA%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%83%97%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%2B%E3%83%9B%E3%83%BC%E3%83%A0%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%81%AE%E5%BF%85%E9%9C%80%E5%93%81%2B%E9%BB%92%2B%2Caps%2C2917&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=sl1&tag=rikimaru07-22&linkId=205ef52aa52443adcd331a0a231575fb&language=ja_JP&ref_=as_li_ss_tl",
+        note: "粘着式ケーブルタイ 50個セット"
+      },
+      {
+        title: "UGREEN USB Type Cケーブル",
+        img: "61DgZxJhEZL._AC_SL1500_.jpg",
+        video: "デスク大人化計画 配線編",
+        tags: ["ケーブル","配線","充電コード","充電器","UGREEN"],
+        amazon_url: "https://amzn.to/4ngiIlh",
+        note: "PD対応100W/5A 高耐久USB-Cケーブル"
+      },
+      {
+        title: "MAVEEK ケーブルクリップ",
+        img: "614v1Y+fiBL._AC_SL1008_.jpg",
+        video: "デスク大人化計画 配線編",
+        tags: ["ケーブル","配線","コード","ケーブルクリップ"],
+        amazon_url: "https://amzn.to/46DxWde",
+        note: "ケーブルを定位置に固定する両面テープ式クリップ"
+      },
+      {
+        title: "UGREEN Revodok 1071 USB-Cハブ",
+        img: "61rLe4YdHqL._AC_SL1500_.jpg",
+        video: "デスク大人化計画 配線編",
+        tags: ["UGREEN","ハブ","USBハブ"],
+        amazon_url: "https://amzn.to/4nsqoAY",
+        note: "PD100W充電/4K HDMI/SDカード対応 USB-Cハブ"
+      },
+      {
+        title: "SONY WH-ULT900N",
+        img: "41CEzuab8nL._AC_SL1000_.jpg",
+        video: "初給料で買ってよかったもの",
+        tags: ["SONY","WH-ULT900N","ヘッドホン","ノイズキャンセリング"],
+        amazon_url: "https://amzn.to/46Qyq0I",
+        note: "ワイヤレスノイズキャンセリングヘッドホン"
+      },
+      {
+        title: "WILLED",
+        img: "71iocUAFh6L._AC_SL1500_.jpg",
+        video: "初給料で買ってよかったもの",
+        tags: ["WILLEDN","ライト","間接照明","LED","照明"],
+        amazon_url: "https://amzn.to/48tyIfaY",
+        note: "タッチ式LEDライト 6個セット"
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+    const empty = document.getElementById("empty");
+    const input = document.getElementById("q");
+    const searchBtn = document.getElementById("searchBtn");
+
+    function render(list){
+      grid.innerHTML = "";
+      if(!list.length){ empty.hidden = false; return; }
+      empty.hidden = true;
+      for(const p of list){
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="thumb">${p.img ? `<img src="${p.img}" alt="${p.title}" loading="lazy">` : "No Image"}</div>
+          <div class="title">${p.title}</div>
+          <div class="meta">${p.video ? `紹介動画：${p.video}` : ""}</div>
+          ${p.tags?.length ? `<div class="tags">${p.tags.map(t=>`<span class="tag">#${t}</span>`).join("")}</div>` : ""}
+          ${p.note ? `<div class="meta">${p.note}</div>` : ""}
+          <a class="btn" href="${p.amazon_url}" target="_blank" rel="nofollow sponsored noopener">Amazonで見る</a>
+        `;
+        grid.appendChild(card);
+      }
+    }
+
+    function search(){
+      const q = input.value.trim().toLowerCase();
+      if(!q){ render(PRODUCTS); return; }
+      const list = PRODUCTS.filter(p => {
+        const hay = [p.title, p.video, p.note, ...(p.tags||[])].join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+      render(list);
+    }
+
+    input.addEventListener("input", search);
+    searchBtn.addEventListener("click", search);
+
+    render(PRODUCTS);
+  </script>
+</body>
+</html>
