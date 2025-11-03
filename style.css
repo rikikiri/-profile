@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FASHION | 力丸のおすすめ</title>
+  <meta name="description" content="動画内で着用・紹介したファッションアイテムのまとめ。">
+  <style>
+    /* --- リニューアル版CSS --- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      color:#222;
+      background:#fdfdfd;
+      line-height:1.6
+    }
+    .container{max-width:1000px;margin:0 auto;padding:0 20px}
+    .section{
+      background:#fff;
+      margin:20px auto;
+      border:1px solid #eee;
+      padding:30px 20px;
+      border-radius: 8px;
+    }
+    .header{display:flex;justify-content:flex-start;align-items:center;margin:10px auto 0;max-width:1000px;padding:10px 0}
+    h1{
+      font-size:2rem;
+      text-align:center;
+      margin:10px 0 0;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+    .notice{font-size:.9rem;color:#666;text-align:center;margin:10px 0 25px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .card{
+      border:1px solid #eee;
+      background: #fff;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      transition:transform .2s ease, box-shadow .2s ease;
+      border-radius: 5px;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.06)}
+    .thumb{width:100%;aspect-ratio:4/3;background:#f7f7f7;border:1px dashed #ccc;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#999;overflow:hidden; border-radius: 4px;}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .title{font-weight:700; color: #111;}
+    .meta{font-size:.85rem;color:#666}
+    .btn{
+      margin-top:auto;
+      display:block;
+      background: #222;
+      color: #fff;
+      border: 2px solid #222;
+      text-decoration:none;
+      padding:12px 14px;
+      font-weight:700;
+      text-align:center; 
+      transition: background .2s, color .2s; 
+      border-radius: 4px;
+    }
+    .btn:hover{background:#555; border-color: #555;}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{border:1px solid #eee;background:#f9f9f9;padding:3px 8px;border-radius:999px;font-size:.75rem;color:#666}
+    .breadcrumb{margin:10px 0 0;font-size:.9rem; white-space: nowrap;}
+    .breadcrumb a{color:#333; text-decoration: none;}
+    .breadcrumb a:hover{text-decoration: underline;}
+    
+    .search{margin:20px auto 30px;max-width:600px;display:flex;gap:8px}
+    .search input{
+      flex:1;
+      border:1px solid #ddd;
+      padding:12px 14px;
+      min-width: 0;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .search button{
+      padding:10px 16px;
+      border:2px solid #222;
+      background:#fff;
+      font-weight:700;
+      cursor:pointer;
+      color: #222;
+      border-radius: 4px;
+      transition: background .2s, color .2s; 
+    }
+    .search button:hover { background: #222; color: #fff; }
+    .empty{padding:30px;text-align:center;color:#666}
+    
+    @media (max-width:768px){
+      body { -webkit-text-size-adjust: 100%; }
+      .container { padding: 0 10px; }
+      h1{font-size:1.6rem}
+      .section{margin:10px auto;padding:20px 12px}
+      .grid{gap:12px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr));}
+      .header { padding: 10px 4px; }
+      .search { flex-direction: column; }
+      .search button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <nav class="breadcrumb"><a href="./index.html">HOME</a> / FASHION</nav>
+    </div>
+
+    <section class="section">
+      <h1>FASHION ITEMS</h1>
+      <p class="notice">動画で着用・紹介したファッションアイテム一覧</p>
+
+      <div class="search">
+        <input id="q" type="search" placeholder="キーワードで商品を検索" aria-label="検索"/>
+        <button id="searchBtn">検索</button>
+      </div>
+
+      <div id="grid" class="grid" aria-live="polite"></div>
+      <div id="empty" class="empty" hidden>該当する商品が見つかりませんでした。</div>
+    </section>
+  </div>
+
+  <script>
+    // ▼▼ ここにファッションアイテムの情報を追加・編集してください ▼▼
+    const FASHION_ITEMS = [
+      {
+        title: "【仮データ】オーバーサイズ Tシャツ (ブラック)",
+        img: "", // 例: "tshirt-black.jpg"
+        video: "夏のOUTFIT紹介",
+        tags: ["トップス","Tシャツ","ブラック","シンプル"],
+        amazon_url: "ここにAmazonアソシエイトURL",
+        note: "動画で着用したオーバーサイズのTシャツです。"
+      },
+      {
+        title: "【仮データ】ワイドフィット カーゴパンツ (カーキ)",
+        img: "", // 例: "cargo-khaki.jpg"
+        video: "夏のOUTFIT紹介",
+        tags: ["ボトムス","カーゴパンツ","カーキ","ワイド"],
+        amazon_url: "ここにAmazonアソシエイトURL",
+        note: "合わせやすいワイドシルエット。"
+      },
+      {
+        title: "【仮データ】ダッドスニーカー (ホワイト)",
+        img: "", // 例: "sneaker-white.jpg"
+        video: "最近買ったスニーカー紹介",
+        tags: ["シューズ","スニーカー","ホワイト","ダッドスニーカー"],
+        amazon_url: "ここにAmazonアソシエイトURL",
+        note: "ボリューム感がお気に入りのスニーカー。"
+      }
+    ];
+    // ▲▲ ここまで ▲▲
+
+    const grid = document.getElementById("grid");
+    const empty = document.getElementById("empty");
+    const input = document.getElementById("q");
+    const searchBtn = document.getElementById("searchBtn");
+
+    function render(list){
+      grid.innerHTML = "";
+      if(!list.length){ empty.hidden = false; return; }
+      empty.hidden = true;
+      for(const p of list){
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="thumb">${p.img ? `<img src="${p.img}" alt="${p.title}" loading="lazy">` : "No Image"}</div>
+          <div class="title">${p.title}</div>
+          <div class="meta">${p.video ? `紹介動画：${p.video}` : ""}</div>
+          ${p.tags?.length ? `<div class="tags">${p.tags.map(t=>`<span class="tag">#${t}</span>`).join("")}</div>` : ""}
+          ${p.note ? `<div class="meta">${p.note}</div>` : ""}
+          <a class="btn" href="${p.amazon_url}" target="_blank" rel="nofollow sponsored noopener">Amazonで見る</a>
+        `;
+        grid.appendChild(card);
+      }
+    }
+
+    function search(){
+      const q = input.value.trim().toLowerCase();
+      if(!q){ render(FASHION_ITEMS); return; }
+      const list = FASHION_ITEMS.filter(p => {
+        const hay = [p.title, p.video, p.note, ...(p.tags||[])].join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+      render(list);
+    }
+
+    input.addEventListener("input", search);
+    searchBtn.addEventListener("click", search);
+
+    render(FASHION_ITEMS);
+  </script>
+</body>
+</html>
