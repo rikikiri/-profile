@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta name="description" content="（ここは各ページの説明文なので、元のままにしてください）">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="./style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>紹介アイテム | 力丸のおすすめ</title>
+  <meta name="description" content="動画内で紹介した商品のまとめページ。Amazonアフィリエイトリンクから購入できます。">
   <style>
-    /* gear.html / fashion.html の h1 (英語 Inter) */
-    h1{
-      font-family: 'Inter', sans-serif;
-      font-weight: 800;
-      font-size:2rem;
-      text-align:center;
-      margin:10px 0 0;
-      letter-spacing: 0.05em;
-    }
-    /* スマホ用 h1 */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Arial','Hiragino Sans','Yu Gothic',sans-serif;color:#333;background:#fff;line-height:1.6}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .section{background:#fff;margin:20px auto;max-width:1000px;border:2px solid #333;padding:30px 20px}
+    .header{display:flex;justify-content:flex-end;align-items:center;margin:10px auto 0;max-width:1000px;padding:10px 0}
+    h1{font-size:2rem;text-align:center;margin:10px 0 0}
+    .notice{font-size:.9rem;color:#666;text-align:center;margin:10px 0 20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .card{border:1px solid #ddd;padding:14px;display:flex;flex-direction:column;gap:10px;transition:transform .2s ease, box-shadow .2s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+    .thumb{width:100%;aspect-ratio:4/3;background:#f7f7f7;border:1px dashed #ccc;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#999;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .title{font-weight:700}
+    .meta{font-size:.85rem;color:#666}
+    .btn{margin-top:auto;display:block;background:linear-gradient(135deg,#FFD700,#FFA500);color:#333;border:2px solid #333;text-decoration:none;padding:10px 14px;font-weight:800;text-align:center; transition: background .2s, color .2s; }
+    .btn:hover{background:#333;color:#FFD700}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{border:1px solid #eee;background:#fafafa;padding:3px 8px;border-radius:999px;font-size:.75rem;color:#666}
+    .breadcrumb{margin:10px 0 0;font-size:.9rem; white-space: nowrap;}
+    .breadcrumb a{color:#333}
+    .search{margin:20px auto;max-width:600px;display:flex;gap:8px}
+    .search input{flex:1;border:1px solid #ddd;padding:10px; min-width: 0;}
+    .search button{padding:10px 14px;border:2px solid #333;background:#fff;font-weight:700;cursor:pointer}
+    .empty{padding:30px;text-align:center;color:#666}
+    
+    /* --- Responsive Styles for Smartphone --- */
     @media (max-width:768px){
-      h1{font-size:1.6rem}
+      body { -webkit-text-size-adjust: 100%; }
+      .container { padding: 0 10px; }
+      h1{font-size:1.4rem}
+      .section{margin:10px auto;padding:20px 12px}
+      .grid{gap:12px}
+      .header { justify-content: flex-start; padding: 10px 4px; }
+      .search { flex-direction: column; }
+      .search button { width: 100%; }
     }
   </style>
 </head>
