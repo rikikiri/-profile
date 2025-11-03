@@ -3,103 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>紹介アイテム | 力丸のおすすめ</title>
-  <meta name="description" content="動画内で紹介した商品のまとめページ。Amazonアフィリエイトリンクから購入できます。">
+  <title>MY GEAR | 力丸のおすすめ</title>
+  <meta name="description" content="動画内で紹介した機材・ガジェットのまとめページ。">
   <style>
-    /* Reset & Base */
+    /* --- リニューアル版CSS --- */
     *{box-sizing:border-box;margin:0;padding:0}
     body{
-      font-family:'Helvetica Neue', 'Arial','Hiragino Sans','Yu Gothic',sans-serif;
-      color:#f0f0f0;
-      background:#121212;
-      line-height:1.6;
-      -webkit-text-size-adjust: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      color:#222;
+      background:#fdfdfd;
+      line-height:1.6
     }
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    a { color: inherit; text-decoration: none; }
-
-    /* Header & Navigation */
-    .header{display:flex;justify-content:flex-end;align-items:center;margin:20px auto 0;max-width:1000px;padding:10px 0}
+    .container{max-width:1000px;margin:0 auto;padding:0 20px}
+    .section{
+      background:#fff;
+      margin:20px auto;
+      border:1px solid #eee;
+      padding:30px 20px;
+      border-radius: 8px;
+    }
+    .header{display:flex;justify-content:flex-start;align-items:center;margin:10px auto 0;max-width:1000px;padding:10px 0}
+    h1{
+      font-size:2rem;
+      text-align:center;
+      margin:10px 0 0;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+    .notice{font-size:.9rem;color:#666;text-align:center;margin:10px 0 25px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .card{
+      border:1px solid #eee;
+      background: #fff;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      transition:transform .2s ease, box-shadow .2s ease;
+      border-radius: 5px;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.06)}
+    .thumb{width:100%;aspect-ratio:4/3;background:#f7f7f7;border:1px dashed #ccc;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#999;overflow:hidden; border-radius: 4px;}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .title{font-weight:700; color: #111;}
+    .meta{font-size:.85rem;color:#666}
+    .btn{
+      margin-top:auto;
+      display:block;
+      background: #222;
+      color: #fff;
+      border: 2px solid #222;
+      text-decoration:none;
+      padding:12px 14px;
+      font-weight:700;
+      text-align:center; 
+      transition: background .2s, color .2s; 
+      border-radius: 4px;
+    }
+    .btn:hover{background:#555; border-color: #555;}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{border:1px solid #eee;background:#f9f9f9;padding:3px 8px;border-radius:999px;font-size:.75rem;color:#666}
     .breadcrumb{margin:10px 0 0;font-size:.9rem; white-space: nowrap;}
-    .breadcrumb a{color:#aaa; transition: color .2s;}
-    .breadcrumb a:hover { color: #fff; }
-
-    /* Section */
-    .section{background:#121212;margin:20px auto;max-width:1000px;padding:30px 20px}
-    h1{font-size:2rem;text-align:center;margin:10px 0 0; font-weight: 700;}
-    .notice{font-size:.9rem;color:#aaa;text-align:center;margin:10px 0 30px}
-
-    /* Search */
-    .search{margin:30px auto;max-width:600px;display:flex;gap:8px}
+    .breadcrumb a{color:#333; text-decoration: none;}
+    .breadcrumb a:hover{text-decoration: underline;}
+    
+    .search{margin:20px auto 30px;max-width:600px;display:flex;gap:8px}
     .search input{
-        flex:1;
-        border:1px solid #333;
-        background: #1c1c1c;
-        color: #f0f0f0;
-        padding:12px;
-        min-width: 0;
-        font-size: 1rem;
+      flex:1;
+      border:1px solid #ddd;
+      padding:12px 14px;
+      min-width: 0;
+      border-radius: 4px;
+      font-size: 1rem;
     }
     .search button{
-        padding:12px 16px;
-        border:2px solid #f0f0f0;
-        background:transparent;
-        color: #f0f0f0;
-        font-weight:700;
-        cursor:pointer;
-        transition: background .2s, color .2s;
+      padding:10px 16px;
+      border:2px solid #222;
+      background:#fff;
+      font-weight:700;
+      cursor:pointer;
+      color: #222;
+      border-radius: 4px;
+      transition: background .2s, color .2s; 
     }
-    .search button:hover {
-        background: #f0f0f0;
-        color: #121212;
-    }
-
-    /* Grid & Cards */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-    .card{
-        background: #1c1c1c;
-        border:1px solid #333;
-        padding:14px;
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-        transition:transform .2s ease, border-color .2s ease;
-    }
-    .card:hover{
-        transform:translateY(-2px);
-        border-color: #555;
-    }
-    .thumb{width:100%;aspect-ratio:4/3;background:#2a2a2a;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#999;overflow:hidden}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .title{font-weight:700; font-size: 1.1rem;}
-    .meta{font-size:.85rem;color:#aaa}
-    .btn{
-        margin-top:auto;
-        display:block;
-        background:transparent;
-        color:#f0f0f0;
-        border:2px solid #f0f0f0;
-        text-decoration:none;
-        padding:10px 14px;
-        font-weight:800;
-        text-align:center;
-        transition: background .2s, color .2s;
-    }
-    .btn:hover{
-        background:#f0f0f0;
-        color:#121212;
-    }
-    .tags{display:flex;flex-wrap:wrap;gap:6px}
-    .tag{border:1px solid #333;background:#2a2a2a;padding:3px 8px;border-radius:999px;font-size:.75rem;color:#ccc}
+    .search button:hover { background: #222; color: #fff; }
     .empty{padding:30px;text-align:center;color:#666}
-
-    /* --- Responsive Styles for Smartphone --- */
+    
     @media (max-width:768px){
+      body { -webkit-text-size-adjust: 100%; }
       .container { padding: 0 10px; }
       h1{font-size:1.6rem}
       .section{margin:10px auto;padding:20px 12px}
-      .grid{gap:12px}
-      .header { justify-content: flex-start; padding: 10px 4px; }
+      .grid{gap:12px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr));}
+      .header { padding: 10px 4px; }
       .search { flex-direction: column; }
       .search button { width: 100%; }
     }
@@ -108,12 +104,12 @@
 <body>
   <div class="container">
     <div class="header">
-      <nav class="breadcrumb"><a href="./index.html">HOME</a> / 紹介アイテム一覧</nav>
+      <nav class="breadcrumb"><a href="./index.html">HOME</a> / MY GEAR</nav>
     </div>
 
     <section class="section">
-      <h1>紹介アイテム一覧</h1>
-      <p class="notice">動画で紹介したアイテムをまとめています。</p>
+      <h1>MY GEAR</h1>
+      <p class="notice">動画で紹介した撮影機材・デスクアイテム一覧</p>
 
       <div class="search">
         <input id="q" type="search" placeholder="キーワードで商品を検索" aria-label="検索"/>
@@ -126,6 +122,7 @@
   </div>
 
   <script>
+    // ▼▼ ここは「機材」のデータ（元のまま） ▼▼
     const PRODUCTS = [
       {
         title: "SONY α7II ボディ",
@@ -208,6 +205,7 @@
         note: "タッチ式LEDライト 6個セット"
       }
     ];
+    // ▲▲ ここまで ▲▲
 
     const grid = document.getElementById("grid");
     const empty = document.getElementById("empty");
@@ -235,6 +233,7 @@
 
     function search(){
       const q = input.value.trim().toLowerCase();
+      // ここの検索対象を「PRODUCTS」にします
       if(!q){ render(PRODUCTS); return; }
       const list = PRODUCTS.filter(p => {
         const hay = [p.title, p.video, p.note, ...(p.tags||[])].join(" ").toLowerCase();
@@ -246,6 +245,7 @@
     input.addEventListener("input", search);
     searchBtn.addEventListener("click", search);
 
+    // 最初の描画も「PRODUCTS」にします
     render(PRODUCTS);
   </script>
 </body>
